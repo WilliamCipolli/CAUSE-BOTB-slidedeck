@@ -167,7 +167,7 @@ Ask students:
 **Teaching Angle**: How can raw audio be converted into structured data? 
 
 * We use Essentia [@Bogdanov13; @Alonso20] to extract meaningful information from the spectrograms of each track
-    * **Music Extractor:** loudness, silence rates, beats per minute, danceability, key, mode, etc. as extracted from the spectrogram. (67 variables)
+    * **Music Extractor:** loudness, silence rates, beats per minute, danceability, key, mode, etc. (67 variables)
     * **Models:** approachability, engagement, arousal, valence, happy, sad, etc. as predicted using models built from existing databases. (14 variables)
     
 # Our Solution For Lyric Features: LIWC
@@ -184,17 +184,17 @@ Using Linguistic Inquiry and Word Count (LIWC) [@LIWC] and Bing Lexicon:
 
     -   writing style
 
--   112 variables
+-   120 variables
 
     -   e.g., positive/negative words, psychometric categories, etc.
 
--   legal to use for research purposes
+-   legal to share resulting data
 
 # The Result
 
 * A large data set with many variables 
-* An outcome variable with 3 levels
-* A lot of opportunities for student engagement 
+    - 180 rows
+    - 204 columns (201 features)
 * A great space for student discussion about AI, data creation, and data privacy 
 
 # Teaching Opportunity 2: Cleaning 
@@ -205,14 +205,11 @@ Students must:
 
 -   handle missing values
 
--   fix inconsistent track names
-
 -   merge data
 
-* handle duplicate tracks (same lyrics, different sounds!)
+-   handle duplicate tracks (same lyrics, different sounds!)
 
 -   transform features
-
 
 # Teaching Opportunity 2: Cleaning  
 
@@ -228,21 +225,35 @@ This makes the data set a good option for various learning goals
 
 **Teaching Angle**: Same data can be used to answer multiple research questions in different ways. 
 
-Two modeling paths:
+0. Empirical Evaluation
+    
+1.  Basic analyses
 
-1.  Logistic Regression
+    -   where do the bands differ?
+
+2.  Logistic Regression
 
     -   only two of the three bands have performing credits
 
     -   predict performing artist (binary)
 
-2.  Multinomial Regression
+3.  Multinomial Regression
 
     -   all three bands have writing credit
 
     -   predict writing artist (three classes)
 
-Optional extensions: LASSO, trees, CV, etc.
+# What We Created: Activities 
+
+Activities for: 
+
+* Data Collection and Cleaning
+* Exploratory data analysis
+* Logistic regression
+* Multinomial regression
+* Model diagnostics (e.g., quantile residuals)
+* Cross validation to assess predictive ability 
+* Feature selection (e.g., LASSO)
 
 # What We Created: Shiny Apps
 
@@ -253,17 +264,6 @@ Apps: <https://shiny.colgate.edu/apps.html>
     * non-parametric alternatives (Mood's Median, Kruskal Wallis)
   * **Logistic Regression**
   * **Multinomial Regression**
-
-# What We Created: Activities 
-
-Activities for: 
-
-* Logistic regression
-* Multinomial regression
-* Cross validation to assess predictive ability 
-* Model diagnostics (e.g., quantile residuals)
-* Feature selection (e.g., LASSO)
-* Classification trees 
 
 ```{r}
 #| width: 100%
